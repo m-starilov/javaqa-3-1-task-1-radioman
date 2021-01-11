@@ -37,7 +37,7 @@ class RadioTest {
 
     @Test
     public void shouldSwitchNextRadioStation() {
-        Radio radio = new Radio(10,0);
+        Radio radio = new Radio(0,10,0,0,100,10);
         radio.nextRadioStation();
 
         assertEquals(1, radio.getCurrentRadioStation());
@@ -45,7 +45,7 @@ class RadioTest {
 
     @Test
     public void shouldSwitchNextRadioStationFrom5() {
-        Radio radio = new Radio(10,5);
+        Radio radio = new Radio(0,10,5,0,100,10);
         radio.nextRadioStation();
 
         assertEquals(6, radio.getCurrentRadioStation());
@@ -53,7 +53,7 @@ class RadioTest {
 
     @Test
     public void shouldSwitchNextRadioStationFromMax() {
-        Radio radio = new Radio(10,10);
+        Radio radio = new Radio(0,10,10,0,100,10);
         radio.nextRadioStation();
 
         assertEquals(0, radio.getCurrentRadioStation());
@@ -61,7 +61,7 @@ class RadioTest {
 
     @Test
     public void shouldSwitchPrevRadioStation() {
-        Radio radio = new Radio(10,9);
+        Radio radio = new Radio(0,10,9,0,100,10);
         radio.prevRadioStation();
 
         assertEquals(8, radio.getCurrentRadioStation());
@@ -69,7 +69,7 @@ class RadioTest {
 
     @Test
     public void shouldSwitchPrevRadioStationFrom0() {
-        Radio radio = new Radio(10,0);
+        Radio radio = new Radio(0,10,0,0,100,10);
         radio.prevRadioStation();
 
         assertEquals(10, radio.getCurrentRadioStation());
@@ -77,7 +77,7 @@ class RadioTest {
 
     @Test
     public void shouldIncreaseVolumeLevelFrom0() {
-        Radio radio = new Radio(0);
+        Radio radio = new Radio(0,10,0,0,100,0);
         radio.increaseVolumeLevel();
 
         assertEquals(1, radio.getCurrentVolumeLevel());
@@ -85,7 +85,7 @@ class RadioTest {
 
     @Test
     public void shouldIncreaseVolumeLevelFrom1() {
-        Radio radio = new Radio(1);
+        Radio radio = new Radio(0,10,0,0,100,1);
         radio.increaseVolumeLevel();
 
         assertEquals(2, radio.getCurrentVolumeLevel());
@@ -93,7 +93,7 @@ class RadioTest {
 
     @Test
     public void shouldNotIncreaseVolumeLevelFromMax() {
-        Radio radio = new Radio(100);
+        Radio radio = new Radio(0,10,0,0,100,100);
         radio.increaseVolumeLevel();
 
         assertEquals(100, radio.getCurrentVolumeLevel());
@@ -101,7 +101,7 @@ class RadioTest {
 
     @Test
     public void shouldDecreaseVolumeLevelFromMax() {
-        Radio radio = new Radio(100);
+        Radio radio = new Radio(0,10,0,0,100,100);
         radio.decreaseVolumeLevel();
 
         assertEquals(99, radio.getCurrentVolumeLevel());
@@ -109,7 +109,7 @@ class RadioTest {
 
     @Test
     public void shouldDecreaseVolumeLevelFrom5() {
-        Radio radio = new Radio(5);
+        Radio radio = new Radio(0,10,0,0,100,5);
         radio.decreaseVolumeLevel();
 
         assertEquals(4, radio.getCurrentVolumeLevel());
@@ -117,7 +117,7 @@ class RadioTest {
 
     @Test
     public void shouldNotDecreaseVolumeLevelFrom0() {
-        Radio radio = new Radio(0);
+        Radio radio = new Radio(0,10,0,0,100,0);
         radio.decreaseVolumeLevel();
 
         assertEquals(0, radio.getCurrentVolumeLevel());
